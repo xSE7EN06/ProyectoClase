@@ -1,4 +1,6 @@
+import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { NavController, ToastController } from '@ionic/angular';
 
 @Component({
@@ -22,11 +24,14 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  login(){
-    if(this.email === 'gio@gmail.com' && this.password === '12345') {
-      this.navController.navigateRoot('/inicio');
-    } else {
-      this.presentToast();
+  login(form: NgForm){
+    
+    if(form.valid){
+      if(this.email === 'gio@gmail.com' && this.password === '12345') {
+        this.navController.navigateRoot('/inicio');
+      } else {
+        this.presentToast();
+      }
     }
   }
 
