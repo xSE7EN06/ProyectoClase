@@ -6,21 +6,25 @@
 
 <ion-content [fullscreen]="true" class="ion-padding">
 
-  <form>
+  <form (ngSubmit)="register(registerForm)" #registerForm="ngForm">
   <ion-list lines="full">
     <ion-item>
-      <ion-input [(ngModel)]="email"
-        label="Correo" 
-        type="email" 
-        label-placement="floating"
-        fill="solid"
-        placeholder="Ingrese su correo" 
+      <ion-input 
+        name="email"
+        [(ngModel)]="email"
+        label="Correo electronico"
+        type="email"
+        labelPlacement="floating"
+        placeholder="example@gmail.com"
+        errorText="El correo electronico no es valido"
+        email
         required>
       </ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-input [(ngModel)]="password"
+      <ion-input name="password"
+      [(ngModel)]="password"
         label="Contraseña" 
         type="password" 
         label-placement="floating"
@@ -31,7 +35,8 @@
     </ion-item>
 
     <ion-item>
-      <ion-input [(ngModel)]="confirmPassword"
+      <ion-input name="confirmPassword"
+      [(ngModel)]="confirmPassword"
         label="Confirmar contraseña" 
         type="password" 
         label-placement="floating"
@@ -42,7 +47,8 @@
     </ion-item>
 
     <ion-item>
-      <ion-input [(ngModel)]="name"
+      <ion-input name="name"
+      [(ngModel)]="name"
         label="Nombres" 
         type="text" 
         label-placement="floating"
@@ -53,7 +59,8 @@
     </ion-item>
 
     <ion-item>
-      <ion-input [(ngModel)]="lastName"
+      <ion-input name="lastName"
+      [(ngModel)]="lastName"
         label="Apellidos" 
         type="text" 
         label-placement="floating"
@@ -64,7 +71,8 @@
     </ion-item>
 
     <ion-item>
-      <ion-input [(ngModel)]="phone"
+      <ion-input name="phone"
+      [(ngModel)]="phone"
         label="Telefono" 
         type="tel" 
         label-placement="floating"
@@ -76,7 +84,7 @@
     </ion-item>
 
     <ion-item lines="none" class="ion-margin-top">
-      <ion-button type="submit" expand="block" color="primary">Registrar cuenta</ion-button>
+      <ion-button type="submit" expand="block" color="primary" [disabled]="registerForm.invalid">Registrar cuenta</ion-button>
     </ion-item>
 
     <ion-text>

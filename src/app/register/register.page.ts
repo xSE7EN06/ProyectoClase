@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { NavController, ToastController } from '@ionic/angular';
 
 
@@ -10,12 +11,12 @@ import { NavController, ToastController } from '@ionic/angular';
 })
 export class RegisterPage implements OnInit {
 
-  email: string = "";
-  password: string = "";
-  confirmPassword: string = "";
+  email: string = '';
+  password: string = '';
+  confirmPassword: string = '';
   name: string = "";
-  lastName: string = "";
-  phone: string = "";
+  lastName: string = '';
+  phone: string = '';
 
 
   constructor(
@@ -26,16 +27,11 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
   }
 
-  register(){
-    if(this.email !== "" && this.password !== "" && this.confirmPassword !== "" && this.name !== "" && this.lastName !== "" && this.phone !== "") {
-      if(this.password === this.confirmPassword){
-        this.navController.navigateRoot('/inicio');
-      }else{
-        this.presentToast();
-      }
-    }else{
-      this.emptyToast();
-    }
+  //va a recibir un form: NgForm
+  register(form: NgForm){
+   if(form.valid){
+    this.navController.navigateBack('/login');
+   }
   }
 
   async presentToast() {
