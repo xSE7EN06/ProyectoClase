@@ -17,6 +17,7 @@ export class RegisterPage implements OnInit {
   lastName: string = "";
   phone: string = "";
 
+
   constructor(
     private navController:NavController,
     private toastController:ToastController
