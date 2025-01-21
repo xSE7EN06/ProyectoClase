@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title>loading</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-button id="open-loading">Show Loading</ion-button>
+      <ion-loading trigger="open-loading" message="Dismissing after 3 seconds..." duration="3000"></ion-loading>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-button id="open-loading1">Show Loading</ion-button>
+      <ion-loading trigger="open-loading1" message="Loading..." [duration]="3000" spinner="circles"></ion-loading>
+    </ion-item>
+  </ion-list>
+</ion-content>
